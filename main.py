@@ -3,9 +3,7 @@ def main():
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     lowered_string = get_words(text)
-    print(f"{num_words} words found in the document")
-    
-
+    dict_character = character_count(lowered_string)
 
 def get_num_words(text):
     words = text.split()
@@ -20,7 +18,17 @@ def get_book_text(path):
     with open(path) as f:
         return f.read()
 
+def character_count(lowered_string):
+    dict_character = {}
+    for character in lowered_string:
+        if character not in dict_character:
+            dict_character[character] = 1
+        else: 
+            dict_character[character] += 1
+    print (f"{dict_character}")
+        
+        
 
-    
+
 
 main()
